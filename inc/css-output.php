@@ -744,6 +744,14 @@ function generate_enqueue_dynamic_css() {
 	$css = $css . generate_no_cache_dynamic_css();
 
 	wp_add_inline_style( 'generate-style', $css );
+
+	$mobile_menu_breakpoint = apply_filters( 'generate_primary_menu_breakpoint', '400' );
+	if ( ! empty( $mobile_menu_breakpoint ) ) {
+		$mobile_menu_media_query = apply_filters( 'generate_primary_menu_media_query', "(max-width: {$mobile_menu_breakpoint}px)" );
+		wp_add_inline_style( 'generate-mobile-style',
+			"@media {$mobile_menu_media_query}{.main-navigation .menu-toggle {display: block;}.main-navigation ul {display: none;}[class*='nav-float-'] .site-header .inside-header > * {float: none;clear: both;}.gen-sidebar-nav {display: none;}.sidebar-nav-mobile:not(#sticky-placeholder) {display: block;}}"
+		);
+	}
 }
 
 add_action( 'init', 'generate_set_dynamic_css_cache' );

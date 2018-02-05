@@ -33,7 +33,7 @@ if ( ! function_exists( 'generate_scripts' ) ) {
 
 		if ( generate_get_setting( 'font_awesome' ) && ! apply_filters( 'generate_fontawesome_essentials', false ) ) {
 			wp_enqueue_script( 'font-awesome', $dir_uri . "/js/fontawesome-all{$suffix}.js", array(), '5.0.6', false );
-			wp_enqueue_script( 'font-awesome-v4-shims', $dir_uri . "/js/fa-v4-shims{$suffix}.js", array( 'font-awesome-5' ), GENERATE_VERSION, false );
+			wp_enqueue_script( 'font-awesome-v4-shims', $dir_uri . "/js/fa-v4-shims{$suffix}.js", array( 'font-awesome' ), GENERATE_VERSION, false );
 		}
 
 		if ( function_exists( 'wp_script_add_data' ) ) {

@@ -439,7 +439,8 @@ input[type="file"] {
 	padding-left: 0;
 }
 
-li.search-item a:before {
+li.search-item a:before,
+span.search-item a:before {
 	content: "\f002";
 	font-family: GeneratePress;
 
@@ -458,7 +459,8 @@ li.search-item a:before {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-li.search-item.close-search a:before {
+li.search-item.close-search a:before,
+span.search-item.close-search a:before {
 	content: "\f00d";
 }
 

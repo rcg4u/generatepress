@@ -2029,8 +2029,8 @@ h3 {
 
 /*
  * Backwards compatibility until Slideout is updated
- * GP Premium 1.2.93
+ * GP Premium 1.6
  */
-.slideout-navigation .menu-item-has-children .dropdown-menu-toggle {
-	float: right;
+.main-navigation .slideout-toggle a:before {
+	font-family: GeneratePress;
 }

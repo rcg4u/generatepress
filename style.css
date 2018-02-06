@@ -1803,6 +1803,22 @@ footer.entry-meta .byline {
 }
 
 /* Back to top icon */
+.generate-back-to-top:before {
+	content: "\f106";
+	font-family: GeneratePress;
+
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 .generate-back-to-top,
 .generate-back-to-top:visited {
 	font-size: 20px;

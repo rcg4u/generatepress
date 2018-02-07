@@ -2047,6 +2047,7 @@ h3 {
  * Backwards compatibility until Slideout is updated
  * GP Premium 1.6
  */
-.main-navigation .slideout-toggle a:before {
+.main-navigation .slideout-toggle a:before,
+.slide-opened .slideout-overlay .slideout-exit:before {
 	font-family: GeneratePress;
 }

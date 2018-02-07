@@ -229,7 +229,7 @@ function generate_migrate_existing_settings() {
 			$new_settings[ 'font_awesome' ] = true;
 
 			// If we've turned on the old essentials option, turn off the full library.
-			if ( isset( $settings['font_awesome_essentials'] ) && $settings['font_awesome_essentials'] ) {
+			if ( ( isset( $settings['font_awesome_essentials'] ) && $settings['font_awesome_essentials'] ) || apply_filters( 'generate_fontawesome_essentials', false ) ) {
 				$new_settings[ 'font_awesome' ] = false;
 			}
 		}

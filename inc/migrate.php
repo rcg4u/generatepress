@@ -214,6 +214,11 @@ function generate_migrate_existing_settings() {
 		generate_get_defaults()
 	);
 
+	// Default was removed in 2.1, so we'll set it here.
+	if ( ! isset( $settings['font_awesome_essentials'] ) ) {
+		$settings['font_awesome_essentials'] = true;
+	}
+
 	// Empty arrays to add data to.
 	$migrated_flags = array();
 	$new_settings = array();
@@ -229,7 +234,7 @@ function generate_migrate_existing_settings() {
 			$new_settings[ 'font_awesome' ] = true;
 
 			// If we've turned on the old essentials option, turn off the full library.
-			if ( ( isset( $settings['font_awesome_essentials'] ) && $settings['font_awesome_essentials'] ) || apply_filters( 'generate_fontawesome_essentials', false ) ) {
+			if ( $settings['font_awesome_essentials'] || apply_filters( 'generate_fontawesome_essentials', false ) ) {
 				$new_settings[ 'font_awesome' ] = false;
 			}
 		}

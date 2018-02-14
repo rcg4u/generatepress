@@ -1099,6 +1099,7 @@ if ( ! function_exists( 'generate_customize_register' ) ) {
 				'description' => sprintf( __( 'Prevent changed Font Awesome 4 icons from breaking. Learn more about updating your icon names <a href="%s" target="_blank" rel="noopener noreferrer">here</a>.', 'generatepress' ), 'https://fontawesome.com/how-to-use/upgrading-from-4#icon-name-changes' ),
 				'section' => 'generate_general_section',
 				'settings' => 'generate_settings[font_awesome_v4_shim]',
+				'active_callback' => 'generate_is_font_awesome_activated',
 			)
 		);
 

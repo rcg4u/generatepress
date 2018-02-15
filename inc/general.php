@@ -318,3 +318,35 @@ function generate_skip_dynamic_css_cache( $cache ) {
 
 	return $cache;
 }
+
+add_action( 'wp_footer', 'generate_do_json_ld' );
+/**
+ * Add JSON-LD to our pages.
+ *
+ * @since TBA
+ */
+function generate_do_json_ld() {
+	$data = array(
+		'@context'	=> 'http://schema.org/',
+		'@type'		=> esc_html( apply_filters( 'generate_article_itemtype', 'CreativeWork' ) ),
+		'headline'	=> get_the_title(),
+		'author'	=> array(
+			'@type' => 'Person',
+			'name'  => get_the_author_meta( 'display_name' ),
+		),
+		'datePublished' => esc_html( get_the_date() ),
+	);
+
+	if ( function_exists( 'get_the_post_thumbnail_url' ) && get_the_post_thumbnail_url() ) {
+		$data['image'] = get_the_post_thumbnail_url();
+	}
+
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$data['dateModified'] = esc_html( get_the_modified_date() );
+	}
+
+	printf(
+		'<script type="application/ld+json">%s</script>',
+		json_encode( apply_filters( 'generate_json_ld', $data ), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES )
+	);
+}
